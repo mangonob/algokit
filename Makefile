@@ -1,4 +1,4 @@
-all: rdoc
+all: build
 
 build:
 	gem build algokit.gemspec

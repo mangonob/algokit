@@ -3,15 +3,6 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'algokit'
 
-class << Gem::Specification
-  ##
-  # Get file list in dir.
-  # [dirname] relative path or absolute path
-  def files_from_dir dirname
-    `find #{dirname} -type f`.split
-  end
-end
-
 Gem::Specification.new do |spec|
   spec.name = "algokit"
   spec.author = "mangonob"
@@ -25,6 +16,5 @@ Gem::Specification.new do |spec|
     "lib"
   ]
 
-  puts "Includes: #{includes}"
-  spec.files = includes.flat_map {|d| files_from_dir(d) }.uniq
+  spec.files = includes.flat_map {|d| `find #{d} -type f`.split }.uniq
 end

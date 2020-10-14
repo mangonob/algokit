@@ -2,6 +2,6 @@
 
 require_relative 'lib/algokit'
 
-puts Algokit::RBTree
-
-assert false
+arr = Algokit::Stack.new
+arr[42] = 24
+puts arr[42]
